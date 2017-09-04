@@ -1,14 +1,14 @@
-import { CashFlowPage } from './app.po';
+import { AppPage } from './app.po';
 
 describe('cash-flow App', () => {
-  let page: CashFlowPage;
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new CashFlowPage();
+    page = new AppPage();
   });
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to cf!!');
+    expect(page.getParagraphText()).toEqual('Welcome to cf!');
   });
 });
