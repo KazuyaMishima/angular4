@@ -2,22 +2,22 @@
  npm start
 
  // basic
- ng g m routes/home
- ng g c routes/home/home --flat --export
+ ng g m views/home
+ ng g c views/home/home --flat --export
  
  // delegated
- ng g m routes/about --routing
- ng g c routes/about/about --flat
+ ng g m views/about --routing
+ ng g c views/about/about --flat
 
  // lazy
- ng g m routes/operations --routing
- ng g c routes/operations/operations --flat
+ ng g m views/operations --routing
+ ng g c views/operations/operations --flat
 
  // nested
- ng g c routes/operations/new
- ng g c routes/operations/list
+ ng g c views/operations/new
+ ng g c views/operations/list
 
  // params
- ng g c routes/operations/item
+ ng g c views/operations/item
 
 ```
