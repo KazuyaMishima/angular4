@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <nav>
       <a routerLink="/operations/new">->New</a>
       <a routerLink="/operations/list">   ->List</a>
+      <a routerLink="/operations/314">   ->Item PI</a>
     </nav>
     <router-outlet></router-outlet>
   `,
