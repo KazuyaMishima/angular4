@@ -8,6 +8,10 @@ const routes: Routes = [
     path: '',
     component: HomeComponent
   },
+  {
+    path: 'operations',
+    loadChildren: './views/operations/operations.module#OperationsModule'
+  }
 ];
 
 @NgModule({
