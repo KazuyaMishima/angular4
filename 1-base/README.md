@@ -3,10 +3,10 @@
  
  ng new cash-flow -is -it -p cf -st
  npm i milligram --save
- ng g m core/layout --routing
- ng g c core/layout/shell --export --flat -it
- ng g c core/layout/top-bar
- ng g c core/layout/main-content
+ ng g m tools/components
+ ng g c tools/components/shell --export 
+ ng g c tools/components/shell/top-bar
+ ng g c tools/components/shell/main-content
 
  ng serve -o
  npm start

@@ -9,6 +9,6 @@ describe('cash-flow App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to cf!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });
