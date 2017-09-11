@@ -8,6 +8,7 @@ import { NewComponent } from './new/new.component';
 import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import { RowComponent } from './list/row/row.component';
+import { OperationsService } from './operations.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { RowComponent } from './list/row/row.component';
     FormsModule,
     OperationsRoutingModule
   ],
-  declarations: [OperationsComponent, NewComponent, ListComponent, ItemComponent, RowComponent]
+  declarations: [
+    OperationsComponent, NewComponent, ListComponent, ItemComponent, RowComponent
+  ],
+  providers: [OperationsService]
 })
 export class OperationsModule { }

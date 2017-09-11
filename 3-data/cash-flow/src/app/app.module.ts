@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ComponentsModule } from "./tools/components/components.module";
-import { AppRoutingModule } from "./app.routing";
-import { HomeModule } from "./views/home/home.module";
-import { AboutModule } from "./views/about/about.module";
-import { OperationsService } from "./views/operations/_data/operations.service";
+import { ComponentsModule } from './tools/components/components.module';
+import { AppRoutingModule } from './app.routing';
+import { HomeModule } from './views/home/home.module';
+import { AboutModule } from './views/about/about.module';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { OperationsService } from "./views/operations/_data/operations.service";
     ComponentsModule,
     HomeModule
   ],
-  providers: [OperationsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

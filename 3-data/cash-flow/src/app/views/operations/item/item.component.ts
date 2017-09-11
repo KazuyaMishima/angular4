@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-import { Operation } from "../_data/operation.model";
-import { OperationsService } from "../_data/operations.service";
+import { ActivatedRoute } from '@angular/router';
+import { Operation } from '../operation.model';
+import { OperationsService } from '../operations.service';
 
 @Component({
   selector: 'cf-item',
@@ -11,7 +11,7 @@ import { OperationsService } from "../_data/operations.service";
 export class ItemComponent implements OnInit {
 
   _id: any;
-  item: Operation
+  item: Operation;
   constructor(
     private route: ActivatedRoute,
     public operationsService: OperationsService) { }
