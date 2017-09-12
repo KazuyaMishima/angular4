@@ -1,0 +1,6 @@
+<li>
+  <a [routerLink]="['..',operation._id]">
+    {{ operation.description  }} : {{ operation.amount  }} €
+  </a>
+  <button (click)="onDeleteClick()">Delete</button>
+</li>
