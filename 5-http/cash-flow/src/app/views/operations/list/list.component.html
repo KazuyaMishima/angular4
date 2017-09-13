@@ -1,0 +1,17 @@
+<h2>
+  List of operations.
+</h2>
+<div *ngIf="!operations;else operationList ">
+  The list is empty!
+</div>
+<ng-template #operationList>
+  <span [ngClass]="{'small-list':operations.length<=3, 'large-list':operations.length>3}">
+    {{ operations$ | async | json }}
+  </span>
+</ng-template>
+<ul class="container">
+  <cf-row *ngFor="let operation of operations$ | async"
+          [operation]="operation"
+          (delete)="onDelete(operation)">
+  </cf-row>
+</ul>

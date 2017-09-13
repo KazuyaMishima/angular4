@@ -1,0 +1,71 @@
+import { Operation } from './operation.model';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable()
+export class OperationsService {
+  private apiUrl = 'http://localhost:3030/api/pub/items';
+  private operationsCount = 0;
+  private operationsCount$: BehaviorSubject<number>;
+
+  constructor(private http: HttpClient) {
+    this.initialize();
+  }
+
+  initialize() {
+    this.operationsCount$ = new BehaviorSubject(this.operationsCount);
+    this.getOperations$()
+      .subscribe(operations => {
+        this.operationsCount = 0;
+        if (operations) {
+          this.operationsCount = operations.length;
+        }
+        this.emitOperationCount();
+      });
+  }
+
+  getOperations$(): Observable<Operation[]> {
+    return this.http
+      .get<Operation[]>(this.apiUrl);
+  }
+
+  getOperationById$(id): Observable<Operation> {
+    return this.http
+      .get<Operation>(`${this.apiUrl}/${id}`);
+  }
+
+  createNewOperation(): Operation {
+    return new Operation(new Date(), 0, '', 1, '');
+  }
+
+  saveOperation$(newOperation: Operation): Observable<any> {
+    return this.http
+      .post(this.apiUrl, newOperation)
+      .do(r => {
+        this.operationsCount++;
+        this.emitOperationCount();
+      });
+  }
+
+  deleteOperation$(operation: Operation): Observable<any> {
+    return this.http
+      .delete(`${this.apiUrl}/${operation._id}`)
+      .do(r => {
+        this.operationsCount--;
+        this.emitOperationCount();
+      });
+  }
+
+  getOperationsCount$(): Observable<number> {
+    return this.operationsCount$.asObservable();
+  }
+
+  private emitOperationCount() {
+    this.operationsCount$.next(this.operationsCount);
+  }
+}

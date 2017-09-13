@@ -2,21 +2,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { LayoutModule } from 'app/core/layout/layout.module';
-import { SharedModule } from "app/core/shared/shared.module";
-import { HttpModule } from "@angular/http";
+import { ComponentsModule } from './tools/components/components.module';
+import { AppRoutingModule } from './app.routing';
+import { HomeModule } from './views/home/home.module';
+import { AboutModule } from './views/about/about.module';
+import { ValidatorsService } from 'app/tools/validators.service';
+import { FormToolsService } from 'app/tools/form-tools.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    AboutModule,
+    AppRoutingModule,
     BrowserModule,
-    HttpModule,
-    LayoutModule,
-    SharedModule
+    ComponentsModule,
+    HomeModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    FormToolsService,
+    ValidatorsService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
