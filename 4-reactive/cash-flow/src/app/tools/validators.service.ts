@@ -8,7 +8,8 @@ export class ValidatorsService {
 
   positiveNumber(control: AbstractControl) {
     let error = null;
-    if (control.value !== undefined && (isNaN(control.value) || control.value < 0)) {
+    const value = control.value;
+    if (value !== undefined && (isNaN(value) || value < 0)) {
       error = { 'positive': 'Must be a positive number' };
     }
     return error;

@@ -9,13 +9,17 @@ export class FormToolsService {
   mustShowErrors(form: FormGroup, controlName: string) {
     let hasErrorsToShow = false;
     const control = this.getControl(form, controlName);
-    const hasChanges = control.dirty || control.touched;
-    if (hasChanges) {
-      hasErrorsToShow = control.errors != null;
+    if (this.hasChanges(control)) {
+      hasErrorsToShow = this.hasErrors(control);
     }
     return hasErrorsToShow;
   }
 
+  hasChanges = (control: AbstractControl) => control.dirty || control.touched;
+
+  hasErrors(control: AbstractControl) {
+    return control.errors != null;
+  }
   getControl(form: FormGroup, controlName: string): AbstractControl {
     return form.controls[controlName];
   }

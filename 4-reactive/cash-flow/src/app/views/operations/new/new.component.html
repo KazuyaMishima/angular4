@@ -13,18 +13,20 @@
              class="float-right">
              Description is required
       </small>
-      <em class="row">touched: </em>
-      <code class="row">
-      <strong>{{ operationForm.get('description').touched | json }}</strong>
-    </code>
-      <em class="row">dirty: </em>
-      <code class="row">
-      <strong>{{ operationForm.get('description').dirty | json }}</strong>
-    </code>
-      <em class="row">errors: </em>
-      <code class="row">
-      <strong>{{ operationForm.get('description').errors | json }}</strong>
-    </code>
+      <aside>
+        <em class="row">touched: </em>
+        <code class="row">
+          <strong>{{ operationForm.get('description').touched | json }}</strong>
+        </code>
+        <em class="row">dirty: </em>
+        <code class="row">
+          <strong>{{ operationForm.get('description').dirty | json }}</strong>
+        </code>
+        <em class="row">errors: </em>
+        <code class="row">
+          <strong>{{ operationForm.get('description').errors | json }}</strong>
+        </code>
+      </aside>
     </section>
     <section name="amount-control">
       <label for="amount">Amount:</label>

@@ -57,9 +57,7 @@ export class NewComponent implements OnInit {
   mustShowErrors(controlName: string) {
     return this
       .toolService
-      .mustShowErrors(
-      this.operationForm,
-      controlName);
+      .mustShowErrors(this.operationForm, controlName);
   }
 
   getControl(controlName: string): AbstractControl {
